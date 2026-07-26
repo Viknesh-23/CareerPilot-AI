@@ -31,22 +31,6 @@ https://careerpilot-ai-e2lh.onrender.com
 - 📥 **Reports & Export** — Generate PDF reports and export application data to CSV.
 
 
-## 📸 Screenshots
-
-### Dashboard
-![CareerPilot AI Dashboard](screenshots/dashboard.png)
-
-### Application Tracking
-![Application Tracking](screenshots/applications.png)
-
-### Kanban Board
-![Kanban Board](screenshots/kanban.png)
-
-### ATS Resume Analysis
-![ATS Resume Analysis](screenshots/ats-analysis.png)
-
-### Analytics
-![Career Analytics](screenshots/analytics.png)
 
 ## Architecture
 
