@@ -47,8 +47,7 @@ https://careerpilot-ai-e2lh.onrender.com
 ### Analytics
 ![Career Analytics](screenshots/analytics.png)
 
-
-## Architecture
+## 🏗️ Architecture
 
 ```text
 Browser → Flask blueprints → service layer → SQLAlchemy models → SQLite/PostgreSQL
@@ -59,7 +58,7 @@ Browser → Flask blueprints → service layer → SQLAlchemy models → SQLite/
 
 Routes are intentionally thin. Resume parsing, ATS matching, skill-gap calculation, readiness scoring, Gemini fallback behavior, interview evaluation, and PDF construction live in `services/`.
 
-## Project structure
+## 📁 Project Structure
 
 ```text
 CareerPilot-AI/
@@ -74,7 +73,7 @@ CareerPilot-AI/
 └── tests/                 # pytest suite
 ```
 
-## Local setup
+## ⚙️ Local Setup
 
 ```bash
 git clone <repository-url>
@@ -92,7 +91,7 @@ flask --app app run
 
 Open `http://127.0.0.1:5000`. SQLite is selected automatically if `DATABASE_URL` is unset.
 
-## Environment variables
+## 🔐 Environment Variables
 
 | Variable | Required | Purpose |
 | --- | --- | --- |
@@ -103,7 +102,7 @@ Open `http://127.0.0.1:5000`. SQLite is selected automatically if `DATABASE_URL`
 
 `config.py` converts legacy `postgres://` URLs to `postgresql://` for SQLAlchemy compatibility. Never commit `.env`.
 
-## Database initialization and migrations
+## 🗄️ Database Initialization & Migrations
 
 For a new local database:
 
@@ -119,11 +118,11 @@ flask --app app db migrate -m "initial schema"
 flask --app app db upgrade
 ```
 
-## ATS scoring
+## 🎯 ATS Scoring
 
 The ATS service uses a curated technical/professional vocabulary, case normalization, skill aliases (`js → javascript`, `postgres → postgresql`, `ml → machine learning`), and word-boundary matching. The score is the percentage of recognized JD skills that occur in the resume; it deliberately does not score every common word.
 
-## Job readiness formula
+## 📊 Job Readiness Formula
 
 ```text
 Readiness = ATS Match × 0.30
@@ -134,11 +133,11 @@ Readiness = ATS Match × 0.30
 
 The final result is clamped to 0–100. Interview preparation is derived from answered generated questions, while skill coverage compares user-profile and resume skills to the tracked job descriptions.
 
-## Gemini integration and fallback
+## 🤖 Gemini Integration & Fallback
 
 When `GEMINI_API_KEY` is set, `services/gemini_service.py` uses the current `google-genai` SDK for question generation and evaluation. Any missing key, quota problem, unavailable model, or network failure transparently falls back to local role-aware questions and a deterministic answer rubric based on answer detail, relevance, technical evidence, and STAR structure. The product remains useful without Gemini.
 
-## Testing
+## 🧪 Testing
 
 ```bash
 pytest
@@ -146,7 +145,7 @@ pytest
 
 Tests use a temporary SQLite database and cover authentication, ownership controls, application CRUD/status history/CSV export, PDF upload handling, ATS normalization and score range, readiness arithmetic, fallback answer evaluation, and the full interview workflow.
 
-## Fake demo data
+## 🧑‍💻 Demo Data
 
 ```bash
 python scripts/seed_data.py
@@ -161,7 +160,7 @@ Password: DemoPass123!
 
 Do not use it in production.
 
-## Render deployment
+## 🚀 Render Deployment
 
 1. Push the repository to GitHub and create a new Render Blueprint from it.
 2. Render reads `render.yaml`, provisions PostgreSQL, sets `DATABASE_URL`, and starts `gunicorn app:app`.
@@ -169,7 +168,7 @@ Do not use it in production.
 4. Run migrations with a Render shell (`flask --app app db upgrade`) after creating migration files, or use `flask --app app init-db` for an initial simple deployment.
 5. Set a strong `SECRET_KEY` (the blueprint generates one by default).
 
-## Manual verification flow
+## ✅ Manual Verification
 
 1. Register an account and complete the career profile.
 2. Upload a text-based PDF resume.
@@ -180,14 +179,15 @@ Do not use it in production.
 7. Review dashboard, analytics, and export the application CSV.
 8. Repeat step 6 without `GEMINI_API_KEY` to confirm the local fallback behavior.
 
-## Security notes
+## 🔒 Security
 
 Passwords use Werkzeug hashing. Every resource lookup confirms ownership before reading or modifying it. CSRF protection is enabled, files are named with `secure_filename`, PDFs are checked before text extraction, uploads have an application-level size limit, and configuration secrets are environment-based.
 
-## Future improvements
+## 🔮 Future Improvements
 
 Email reminders, calendar sync, OCR for scanned resumes, role-specific scoring profiles, richer dashboard filtering, and asynchronous job processing are sensible future additions.
 
-## License
+## 📄 License
 
 MIT — add a `LICENSE` file before publishing if you want to distribute the project under this license.
+
