@@ -1,18 +1,52 @@
-# CareerPilot AI
+# 🚀 CareerPilot AI
 
-CareerPilot AI is a production-minded Flask platform for managing the job-application lifecycle: it tracks applications, compares resumes to job descriptions, identifies skill gaps, calculates readiness, and supports application-specific mock interviews.
+**CareerPilot AI** is a full-stack AI-powered career management platform designed to help job seekers manage applications, analyze resume-to-job compatibility, identify skill gaps, prepare for interviews, and track overall job readiness.
 
-> Live demo: add your Render URL here after deployment.
+Built with **Python, Flask, SQLAlchemy, PostgreSQL, Bootstrap, Chart.js, PyMuPDF, ReportLab, and Google Gemini AI**.
 
-## Highlights
+> ## 🌐 Live Demo
 
-- Secure registration, sign-in, per-user data isolation, CSRF protection, hashed passwords, and PDF upload validation.
-- Complete application CRUD, filtering/search/sorting, CSV export, activity timeline, interview events, and drag-and-drop Kanban workflow.
-- Multiple text-PDF resumes with PyMuPDF extraction; normalized ATS matching against curated skills and aliases.
-- Cross-application skill-demand and skill-gap analysis, with a transparent readiness score.
-- AI-assisted (Gemini) or deterministic local fallback interview question generation and answer evaluation.
-- Mock interview reports, ATS reports, and downloadable PDFs built with ReportLab.
-- Dashboard and analytics charts powered by Chart.js; responsive Bootstrap UI with persisted dark mode.
+CareerPilot AI is deployed on Render:
+
+https://careerpilot-ai-e2lh.onrender.com
+
+> Note: The application uses Render's free tier, so the first request may take a few seconds to load after inactivity.
+
+## ✨ Key Features
+
+- 🔐 **Secure Authentication** — User registration, login, password hashing, CSRF protection, and isolated user data.
+
+- 📋 **Application Tracking** — Create, update, delete, search, filter, and organize job applications.
+
+- 📌 **Kanban Board** — Drag-and-drop job application tracking across different hiring stages.
+
+- 📄 **Resume Management** — Upload and manage multiple PDF resumes with automatic text extraction using PyMuPDF.
+
+- 🎯 **ATS Resume Matching** — Compare resumes against job descriptions, calculate ATS match scores, and identify missing skills.
+
+- 🧠 **AI Interview Preparation** — Generate application-specific interview questions and preparation material.
+
+- 📊 **Career Analytics** — Track applications, interviews, offers, ATS scores, and overall job readiness.
+
+- 📥 **Reports & Export** — Generate PDF reports and export application data to CSV.
+
+
+## 📸 Screenshots
+
+### Dashboard
+![CareerPilot AI Dashboard](screenshots/dashboard.png)
+
+### Application Tracking
+![Application Tracking](screenshots/applications.png)
+
+### Kanban Board
+![Kanban Board](screenshots/kanban.png)
+
+### ATS Resume Analysis
+![ATS Resume Analysis](screenshots/ats-analysis.png)
+
+### Analytics
+![Career Analytics](screenshots/analytics.png)
 
 ## Architecture
 
