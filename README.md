@@ -48,7 +48,6 @@ https://careerpilot-ai-e2lh.onrender.com
 ![Career Analytics](screenshots/analytics.png)
 
 
-
 ## Architecture
 
 ```text
